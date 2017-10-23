@@ -65,8 +65,8 @@ spec:
             - "authenticationMechanisms=SCRAM-SHA-1"
           resources:
             requests:
-              cpu: 1.5
-              memory: 6144Mi
+              cpu: 1
+              memory: 5120Mi
           ports:
             - containerPort: 27017
           volumeMounts:

@@ -56,4 +56,14 @@ spec:
             - name: secrets-volume
               readOnly: true
               mountPath: /etc/secrets-volume
-
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongos
+spec:
+  selector:
+    role: mongos
+  ports:
+  - protocol: TCP
+    port: 27017
+  type: LoadBalancer

@@ -9,7 +9,7 @@ NEW_PASSWORD="abc123"
 # Create new GKE Kubernetes cluster (using host node VM images based on Ubuntu
 # rather than default ChromiumOS & also use slightly larger VMs than default)
 echo "Creating GKE Cluster"
-gcloud container clusters create "gke-mongodb-demo-cluster" --image-type=UBUNTU --machine-type=n1-standard-2
+gcloud container clusters create "gke-mongodb-demo-cluster" --image-type=UBUNTU --machine-type=n1-standard-2 --num-nodes=10
 
 
 # Configure host VM using daemonset to disable hugepages
@@ -29,7 +29,7 @@ done
 for i in 1 2 3 4 5 6 7 8 9
 do
     # 8 GB disks
-    gcloud compute disks create --size 8GB --type pd-ssd pd-ssd-disk-8g-$i
+    gcloud compute disks create --size 50GB --type pd-ssd pd-ssd-disk-8g-$i
 done
 sleep 3
 
@@ -45,7 +45,7 @@ done
 for i in 1 2 3 4 5 6 7 8 9
 do
     # Replace text stating volume number + size of disk (set to 8)
-    sed -e "s/INST/${i}/g; s/SIZE/8/g" ../resources/xfs-gce-ssd-persistentvolume.yaml > /tmp/xfs-gce-ssd-persistentvolume.yaml
+    sed -e "s/INST/${i}/g; s/SIZE/50/g" ../resources/xfs-gce-ssd-persistentvolume.yaml > /tmp/xfs-gce-ssd-persistentvolume.yaml
     kubectl apply -f /tmp/xfs-gce-ssd-persistentvolume.yaml
 done
 rm /tmp/xfs-gce-ssd-persistentvolume.yaml

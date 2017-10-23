@@ -29,7 +29,7 @@ do
 done
 for i in 1 2 3 4 5 6 7 8 9
 do
-    kubectl delete persistentvolumes data-volume-8g-$i
+    kubectl delete persistentvolumes data-volume-50g-$i
 done
 sleep 20
 
@@ -40,7 +40,7 @@ do
 done
 for i in 1 2 3 4 5 6 7 8 9
 do
-    gcloud -q compute disks delete pd-ssd-disk-8g-$i
+    gcloud -q compute disks delete pd-ssd-disk-50g-$i
 done
 
 # Delete whole Kubernetes cluster (including its VM instances)

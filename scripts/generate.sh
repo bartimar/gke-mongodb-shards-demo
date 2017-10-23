@@ -29,7 +29,7 @@ done
 for i in 1 2 3 4 5 6 7 8 9
 do
     # 8 GB disks
-    gcloud compute disks create --size 50GB --type pd-ssd pd-ssd-disk-8g-$i
+    gcloud compute disks create --size 50GB --type pd-ssd pd-ssd-disk-50g-$i
 done
 sleep 3
 

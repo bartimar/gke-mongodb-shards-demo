@@ -57,7 +57,10 @@ To test that the sharded cluster is working properly, connect to the container r
     > db.testcoll.find();
     > sh.status();
 
-### 1.4 Undeploying & Cleaning Down the Kubernetes Environment
+### 1.4 Connecting to the cluster
+    > mongodb://main_admin:abc123@IP:27017/test?authSource=admin
+
+### 1.5 Undeploying & Cleaning Down the Kubernetes Environment
 
 **Important:** This step is required to ensure you aren't continuously charged by Google Cloud for an environment you no longer need.
 

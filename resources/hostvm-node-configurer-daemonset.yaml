@@ -27,4 +27,10 @@ spec:
             # Disable hugepages
             echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
             echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag
-
+        resources:
+          limits:
+            cpu: 10m
+            memory: 32Mi
+          requests:
+            cpu: 1m
+            memory: 16Mi 

@@ -182,7 +182,7 @@ sleep 2
 
 
 # Create the Admin User (this will automatically disable the localhost exception)
-echo "Creating user: 'main_admin'"
+echo "Creating user: '$MONGO_USER'"
 kubectl exec $(kubectl get pod -l "tier=routers" -o jsonpath='{.items[0].metadata.name}') -c mongos-container -- mongo --eval 'db.getSiblingDB("admin").createUser({user:"'"${MONGO_USER}"'",pwd:"'"${MONGO_PASSWORD}"'",roles:[{role:"root",db:"admin"}]});'
 echo
 

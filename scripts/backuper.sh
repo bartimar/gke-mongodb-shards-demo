@@ -11,5 +11,4 @@ END
 echo "Executing:"
 echo "$CMD"
 
-kubectl exec -it $(kubectl get pod -l "tier=routers" -o jsonpath='{.items[0].metadata.name}') -c mongos-container -- mongo --authenticationDatabase admin  --username main_admin --password abc123 --eval "$CMD"
-
+kubectl exec -it $(kubectl get pod -l "tier=routers" -o jsonpath='{.items[0].metadata.name}') -c mongos-container -- mongo --authenticationDatabase admin  --username "$MONGO_USER" --password "$MONGO_PASSWORD" --eval "$CMD"

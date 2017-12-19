@@ -1,3 +1,17 @@
+# Intro
+This repo is based on a blog and github repo https://github.com/pkdone/gke-mongodb-shards-demo
+This fork is tuned for mongodb 3.4 as a sharded mongodb cluster with
+* configdb replicaset running on 3x g1-small machines with its own node-pool
+* main nodes running on n1-standard-1 along with arbiters (check the affinity) and mongos' on one node-pool
+
+Default cluster size is 3 shards, add or delete one with addShard.sh and deleteShard.sh (mainly used with scaling between 3-4 shards, not less). If you need a bigger cluster, uncomment the creation of mongos and arbiter node-pools and scale up.
+
+this configuration can be easily changed in file scripts/cluster.conf
+
+**DO NOT USE THIS IN PRODUCTION**. 
+
+Feel free to report and fix bugs or submit new features. 
+
 # MongoDB Sharded Cluster Deployment Demo for Kubernetes on GKE
 
 An example project demonstrating the deployment of a MongoDB Sharded Cluster via Kubernetes on the Google Container Platform (GKE), using Kubernetes' feature StatefulSet. Contains example Kubernetes YAML resource files (in the 'resource' folder) and associated Kubernetes based Bash scripts (in the 'scripts' folder) to configure the environment and deploy a MongoDB Replica Set.

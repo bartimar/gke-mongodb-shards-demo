@@ -1,4 +1,5 @@
 # Intro
+## tldr; do not use this in production, would be nice to make a helm chart for the sharded mongo and google-deployment-manager (or terraform) provisioning script for the cluster
 This repo is based on a blog and github repo https://github.com/pkdone/gke-mongodb-shards-demo
 This fork is tuned for mongodb 3.4 as a sharded mongodb cluster with
 * configdb replicaset running on 3x g1-small machines with its own node-pool
